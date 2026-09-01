@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Shelf - Ultimate Student Productivity Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; color: #0f172a; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+    </style>
+</head>
+<body class="h-full flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+    <div id="landing-page" class="fixed inset-0 z-50 bg-[#f8fafc] flex flex-col justify-between p-6 sm:p-12 overflow-y-auto">
+        <header class="max-w-6xl mx-auto w-full flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-indigo-200">
+                    📚
+                </div>
+                <span class="font-extrabold text-lg tracking-tight text-slate-900">STUDY SHELF</span>
+            </div>
+            <button onclick="enterPlatform()" class="text-xs font-bold text-indigo-600 hover:text-indigo-700 bg-indigo-50 px-4 py-2 rounded-xl transition">
+                Launch App →
+            </button>
+        </header>
+
+        <main class="max-w-4xl mx-auto w-full text-center space-y-8 my-auto py-12">
+            <div class="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-100 px-3.5 py-1.5 rounded-full text-xs font-semibold text-indigo-700">
+                <span>⚡ Ultimate JEE/NEET Student Productivity Workspace</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Master Your Preparation with <span class="text-indigo-600">Study Shelf</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                A complete, production-ready study platform designed to help students access resources, organize preparation, track focus hours, manage goals, and drive academic consistency.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
+                <button onclick="enterPlatform()" class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8 py-4 rounded-2xl text-sm transition shadow-xl shadow-indigo-200">
+                    Enter Study Shelf →
+                </button>
+                <a href="https://t.me/StudyShelf" target="_blank" class="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold px-8 py-4 rounded-2xl text-sm transition">
+                    Join Telegram Community 📢
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-12 text-left">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                    <div class="text-2xl">⏱️</div>
+                    <h3 class="font-bold text-slate-800 text-sm">Focus Tracker</h3>
+                    <p class="text-xs text-slate-500">Pomodoro, stopwatch, and session notes auto-saved.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                    <div class="text-2xl">🎯</div>
+                    <h3 class="font-bold text-slate-800 text-sm">Goals & Tasks</h3>
+                    <p class="text-xs text-slate-500">Daily targets and priority task management.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                    <div class="text-2xl">📊</div>
+                    <h3 class="font-bold text-slate-800 text-sm">Analytics</h3>
+                    <p class="text-xs text-slate-500">Real-time stats, streaks, and smart insights.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                    <div class="text-2xl">📖</div>
+                    <h3 class="font-bold text-slate-800 text-sm">Resources</h3>
+                    <p class="text-xs text-slate-500">Direct integration with official JEE/NEET channels.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="max-w-6xl mx-auto w-full text-center text-xs text-slate-400 py-4">
+            Study Shelf &copy; 2026 &bull; Designed for Dedicated Aspirants
+        </footer>
+    </div>
+
+    <div id="app-shell" class="hidden h-full flex flex-col">
+        <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 bg-indigo-600 text-white rounded-xl flex items-center justify-center font-bold text-base shadow-md shadow-indigo-100">
+                        📚
+                    </div>
+                    <div>
+                        <h1 class="text-sm font-bold tracking-tight text-slate-900">STUDY SHELF</h1>
+                        <p class="text-[10px] text-slate-500 font-medium">Student Workspace</p>
+                    </div>
+                </div>
+
+                <nav class="hidden lg:flex bg-slate-100 p-1 rounded-2xl gap-1">
+                    <button onclick="switchTab('dashboard')" id="nav-dashboard" class="px-3 py-1.5 text-xs font-bold rounded-xl transition-all bg-white shadow-sm text-slate-900">🏠 Dashboard</button>
+                    <button onclick="switchTab('timer')" id="nav-timer" class="px-3 py-1.5 text-xs font-bold rounded-xl transition-all text-slate-600 hover:text-slate-900">⏱️ Timer</button>
+                    <button onclick="switchTab('goals')" id="nav-goals" class="px-3 py-1.5 text-xs font-bold rounded-xl transition-all text-slate-600 hover:text-slate-900">🎯 Goals</button>
+                    <button onclick="switchTab('tasks')" id="nav-tasks" class="px-3 py-1.5 text-xs font-bold rounded-xl transition-all text-slate-600 hover:text-slate-900">✅ Tasks</button>
+                    <button onclick="switchTab('subjects')" id="nav-subjects" class="px-3 py-1.5 text-xs font-bold rounded-xl transition-all text-slate-600 hover:text-slate-900">📖 Subjects</button>
+                    <button onclick="switchTab('analytics')" id="nav-analytics" class="px-3 py-1.5 text-xs font-bold rounded-xl transition-all text-slate-600 hover:text-slate-900">📊 Analytics</button>
+                    <button onclick="switchTab('community')" id="nav-community" class="px-3 py-1.5 text-xs font-bold rounded-xl transition-all text-slate-600 hover:text-slate-900">📢 Community</button>
+                    <button onclick="switchTab('settings')" id="nav-settings" class="px-3 py-1.5 text-xs font-bold rounded-xl transition-all text-slate-600 hover:text-slate-900">⚙️ Settings</button>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <div class="hidden sm:flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-2xl">
+                        <div class="w-6 h-6 bg-indigo-100 text-indigo-700 rounded-full flex items-center justify-center font-bold text-xs">👤</div>
+                        <span class="text-xs font-bold text-slate-700" id="header-username">Aspirant</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-40 flex justify-around p-2 shadow-lg">
+            <button onclick="switchTab('dashboard')" id="mob-nav-dashboard" class="flex flex-col items-center p-2 text-indigo-600">
+                <span class="text-lg">🏠</span>
+                <span class="text-[10px] font-bold">Home</span>
+            </button>
+            <button onclick="switchTab('timer')" id="mob-nav-timer" class="flex flex-col items-center p-2 text-slate-500">
+                <span class="text-lg">⏱️</span>
+                <span class="text-[10px] font-bold">Timer</span>
+            </button>
+            <button onclick="switchTab('goals')" id="mob-nav-goals" class="flex flex-col items-center p-2 text-slate-500">
+                <span class="text-lg">🎯</span>
+                <span class="text-[10px] font-bold">Goals</span>
+            </button>
+            <button onclick="switchTab('tasks')" id="mob-nav-tasks" class="flex flex-col items-center p-2 text-slate-500">
+                <span class="text-lg">✅</span>
+                <span class="text-[10px] font-bold">Tasks</span>
+            </button>
+            <button onclick="switchTab('community')" id="mob-nav-community" class="flex flex-col items-center p-2 text-slate-500">
+                <span class="text-lg">📢</span>
+                <span class="text-[10px] font-bold">Network</span>
+            </button>
+        </nav>
+
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-grow w-full pb-20 lg:pb-6 custom-scrollbar overflow-y-auto">
+            
+            <section id="tab-dashboard" class="space-y-6">
+                <div class="bg-gradient-to-r from-indigo-900 to-slate-900 text-white p-6 sm:p-8 rounded-3xl shadow-xl space-y-4">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div class="space-y-1">
+                            <span class="bg-indigo-500/30 text-indigo-200 border border-indigo-400/30 text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Smart Workspace</span>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold" id="dash-greeting">Welcome back, Aspirant!</h2>
+                            <p class="text-xs sm:text-sm text-indigo-200">Consistency is key to cracking JEE & NEET. Here is your daily summary.</p>
+                        </div>
+                        <button onclick="switchTab('timer')" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold px-6 py-3 rounded-2xl text-xs transition shadow-lg shadow-indigo-500/30">
+                            Start Studying Now ⏱️
+                        </button>
+                    </div>
+                    
+                    <div id="smart-insight-card" class="bg-white/10 border border-white/10 p-4 rounded-2xl text-xs text-indigo-100 flex items-center gap-3">
+                        <span class="text-lg">💡</span>
+                        <span id="smart-insight-text">Loading smart productivity insights based on your progress...</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-1">
+                        <p class="text-[11px] font-bold text-slate-400 uppercase">Today's Study Time</p>
+                        <h3 class="text-2xl font-black text-slate-900" id="dash-today-time">0h 0m</h3>
+                        <p class="text-[10px] font-bold text-emerald-600">Active session tracker</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-1">
+                        <p class="text-[11px] font-bold text-slate-400 uppercase">Current Streak 🔥</p>
+                        <h3 class="text-2xl font-black text-amber-600" id="dash-streak">1 Days</h3>
+                        <p class="text-[10px] font-bold text-slate-500">Daily study habit</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-1">
+                        <p class="text-[11px] font-bold text-slate-400 uppercase">Tasks Completed</p>
+                        <h3 class="text-2xl font-black text-slate-900" id="dash-tasks-count">0 / 0</h3>
+                        <p class="text-[10px] font-bold text-indigo-600">To-Do progress</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-1">
+                        <p class="text-[11px] font-bold text-slate-400 uppercase">Total XP Earned</p>
+                        <h3 class="text-2xl font-black text-indigo-600" id="dash-xp">0 XP</h3>
+                        <p class="text-[10px] font-bold text-slate-500">Level 1 Aspirant</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-slate-900 text-sm">Recent Study Sessions</h3>
+                        <button onclick="switchTab('timer')" class="text-xs font-bold text-indigo-600 hover:text-indigo-700">Open Timer →</button>
+                    </div>
+                    <div id="dash-session-log" class="space-y-2">
+                        <div class="text-xs text-slate-400 italic bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                            No study sessions recorded yet today. Start your timer above!
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-timer" class="hidden space-y-6">
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm max-w-xl mx-auto text-center space-y-6">
+                    <div>
+                        <span class="bg-emerald-50 text-emerald-700 border border-emerald-100 text-[10px] px-3 py-1 rounded-full font-bold">⏱️ Focus Workspace</span>
+                        <h2 class="text-2xl font-extrabold text-slate-900 mt-2">Study Session Timer</h2>
+                        <p class="text-xs text-slate-500">Select subject & topic, configure your duration, and auto-save sessions.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
+                        <div>
+                            <label class="text-[11px] font-bold text-slate-500">Subject</label>
+                            <select id="timer-subject" class="w-full mt-1 bg-slate-50 border border-slate-200 rounded-2xl px-3 py-2.5 text-xs font-semibold focus:outline-none focus:border-indigo-500">
+                                <option value="Physics">Physics</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Biology">Biology</option>
+                                <option value="General Study">General Study</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-[11px] font-bold text-slate-500">Topic / Chapter</label>
+                            <input type="text" id="timer-topic" placeholder="e.g. Kinematics" class="w-full mt-1 bg-slate-50 border border-slate-200 rounded-2xl px-3 py-2.5 text-xs font-semibold focus:outline-none focus:border-indigo-500">
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center gap-2 flex-wrap">
+                        <button onclick="setTimerDuration(25)" class="px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-xs font-bold rounded-xl transition">25m Pomodoro</button>
+                        <button onclick="setTimerDuration(50)" class="px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-xs font-bold rounded-xl transition">50m Focus</button>
+                        <button onclick="setTimerDuration(15)" class="px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-xs font-bold rounded-xl transition">15m Quick</button>
+                    </div>
+
+                    <div class="text-6xl sm:text-7xl font-black text-slate-900 tracking-wider py-6 font-mono" id="clock-display">25:00</div>
+
+                    <div class="flex justify-center gap-3">
+                        <button onclick="toggleTimer()" id="timer-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8 py-3.5 rounded-2xl text-xs transition shadow-lg shadow-indigo-200">Start Session</button>
+                        <button onclick="resetTimer()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-5 py-3.5 rounded-2xl text-xs transition">Reset</button>
+                    </div>
+
+                    <div class="text-left space-y-1 pt-2 border-t border-slate-100">
+                        <label class="text-[11px] font-bold text-slate-500">Session Notes</label>
+                        <input type="text" id="timer-notes" placeholder="Write key takeaways or questions..." class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-3 py-2.5 text-xs font-semibold focus:outline-none focus:border-indigo-500">
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-goals" class="hidden space-y-6">
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6 max-w-2xl mx-auto">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h2 class="text-xl font-extrabold text-slate-900">🎯 Study Goals & Targets</h2>
+                            <p class="text-xs text-slate-500">Configure your daily study-hour goal and track completion.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 bg-slate-50 p-5 rounded-2xl border border-slate-100">
+                        <div>
+                            <label class="text-xs font-bold text-slate-700">Daily Study-Hour Goal</label>
+                            <div class="flex gap-2 mt-1">
+                                <input type="number" id="goal-hours-input" value="6" min="1" max="16" class="flex-grow bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-semibold focus:outline-none">
+                                <button onclick="saveDailyGoal()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-5 py-2 rounded-xl text-xs transition">Save Goal</button>
+                            </div>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-slate-600">Today's Goal Progress</span>
+                                <span class="text-indigo-600" id="goal-progress-text">0%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                                <div id="goal-progress-bar" class="bg-indigo-600 h-full w-0 transition-all duration-500"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-tasks" class="hidden space-y-6">
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6 max-w-2xl mx-auto">
+                    <div>
+                        <h2 class="text-xl font-extrabold text-slate-900">✅ Daily To-Do Tasks</h2>
+                        <p class="text-xs text-slate-500">Manage your daily study assignments, practice sets, and syllabus tasks.</p>
+  
