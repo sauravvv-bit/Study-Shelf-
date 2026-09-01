@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Shelf - Ultimate Study Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fcfbf9;
+            color: #2d2a29;
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col antialiased">
+
+    <!-- Header & Logo -->
+    <header class="bg-white border-b border-stone-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 flex items-center justify-center bg-stone-100 rounded-xl shadow-inner">
+                    <svg viewBox="0 0 100 100" class="w-10 h-10">
+                        <rect x="10" y="70" width="80" height="8" rx="4" fill="#654321" stroke="#2d2a29" stroke-width="2"/>
+                        <rect x="25" y="30" width="12" height="40" rx="3" fill="#3b82f6" stroke="#2d2a29" stroke-width="2"/>
+                        <rect x="27" y="38" width="8" height="4" fill="#fbbf24" rx="1"/>
+                        <rect x="40" y="30" width="13" height="40" rx="3" fill="#ef4444" stroke="#2d2a29" stroke-width="2"/>
+                        <rect x="42" y="36" width="9" height="4" fill="#fbbf24" rx="1"/>
+                        <rect x="42" y="58" width="9" height="4" fill="#fbbf24" rx="1"/>
+                        <rect x="56" y="24" width="14" height="46" rx="3" fill="#14b8a6" stroke="#2d2a29" stroke-width="2"/>
+                        <rect x="60" y="34" width="6" height="10" rx="2" fill="#fbbf24" stroke="#2d2a29" stroke-width="1.5"/>
+                        <path d="M 73 50 L 87 50 L 83 68 L 77 68 Z" fill="#f59e0b" stroke="#2d2a29" stroke-width="2"/>
+                        <rect x="71" y="46" width="18" height="4" rx="2" fill="#f59e0b" stroke="#2d2a29" stroke-width="2"/>
+                        <path d="M 80 46 C 75 42 72 32 78 26 C 84 32 85 42 80 46 Z" fill="#84cc16" stroke="#2d2a29" stroke-width="2"/>
+                        <path d="M 80 46 C 85 42 90 34 86 28 C 80 30 78 40 80 46 Z" fill="#65a30d" stroke="#2d2a29" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-wider text-stone-800">STUDY SHELF</h1>
+                    <p class="text-xs text-stone-500">Channels, JEE/NEET Books & Study Tracker</p>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <nav class="flex bg-stone-100 p-1.5 rounded-2xl gap-1 flex-wrap justify-center">
+                <button onclick="switchTab('channels')" id="nav-channels" class="px-3 py-2 text-xs font-bold rounded-xl transition-all bg-white shadow-sm text-stone-800">Channels</button>
+                <button onclick="switchTab('jeeneet')" id="nav-jeeneet" class="px-3 py-2 text-xs font-bold rounded-xl transition-all text-stone-600 hover:text-stone-800">JEE/NEET Books</button>
+                <button onclick="switchTab('tracker')" id="nav-tracker" class="px-3 py-2 text-xs font-bold rounded-xl transition-all text-stone-600 hover:text-stone-800">Study Tracker</button>
+                <button onclick="switchTab('timer')" id="nav-timer" class="px-3 py-2 text-xs font-bold rounded-xl transition-all text-stone-600 hover:text-stone-800">Timer</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full">
+
+        <!-- CHANNELS & OWNER TAB -->
+        <section id="tab-channels" class="space-y-6">
+            <div class="bg-gradient-to-r from-teal-50 to-amber-50 p-6 rounded-3xl border border-stone-200 shadow-sm space-y-4">
+                <span class="inline-block bg-teal-100 text-teal-800 text-xs px-3 py-1 rounded-full font-bold">📢 Community Network</span>
+                <h2 class="text-2xl font-bold text-stone-800">Study Shelf Ecosystem & Owner</h2>
+                <p class="text-sm text-stone-600">Explore our central hub, specialized group chats (GCS), sub-channels, and connect with the owner.</p>
+            </div>
+
+            <!-- Owner Card -->
+            <div class="bg-white p-6 rounded-3xl border border-stone-200 shadow-sm flex items-center gap-5">
+                <div class="w-16 h-16 rounded-2xl bg-amber-500 flex items-center justify-center text-white font-extrabold text-2xl shadow-md">
+                    S
+                </div>
+                <div>
+                    <span class="text-xs uppercase tracking-wider font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-lg">Platform Owner</span>
+                    <h3 class="text-xl font-bold text-stone-800 mt-1">Saurav</h3>
+                    <p class="text-xs text-stone-500 mt-0.5">Founder & Creator of Study Shelf network</p>
+                </div>
+            </div>
+
+            <!-- Channels & Sub-channels Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-6 rounded-3xl border border-stone-200 shadow-sm space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center">
+                        <i data-lucide="radio" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-stone-800 text-lg">Study Shelf Main Channel</h3>
+                    <p class="text-xs text-stone-500">The primary broadcast channel for study materials, daily motivation, announcements, and timetables.</p>
+                    <a href="#" target="_blank" class="inline-block text-xs font-bold text-blue-600 hover:underline pt-2">Join Main Channel &rarr;</a>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-stone-200 shadow-sm space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center">
+                        <i data-lucide="users" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-stone-800 text-lg">Group Chats (GCS)</h3>
+                    <p class="text-xs text-stone-500">Interactive peer discussion groups to solve doubts, share strategies, and hold study accountability sessions.</p>
+                    <a href="#" target="_blank" class="inline-block text-xs font-bold text-teal-600 hover:underline pt-2">Open GCS Groups &rarr;</a>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-stone-200 shadow-sm space-y-3 md:col-span-2">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center">
+                        <i data-lucide="git-branch" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-stone-800 text-lg">Sub-Channels (Subject-Specific)</h3>
+                    <p class="text-xs text-stone-500">Dedicated breakout channels focusing on specific verticals like Physics problem-solving, Organic Chemistry shortcuts, and Mathematics formulas.</p>
+                    <div class="flex gap-2 pt-2 flex-wrap">
+                        <span class="bg-stone-100 text-stone-700 text-xs px-3 py-1 rounded-xl font-bold">#physics-sub</span>
+                        <span class="bg-stone-100 text-stone-700 text-xs px-3 py-1 rounded-xl font-bold">#chem-sub</span>
+                        <span class="bg-stone-100 text-stone-700 text-xs px-3 py-1 rounded-xl font-bold">#maths-sub</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JEE / NEET BOOKS TAB -->
+        <section id="tab-jeeneet" class="hidden space-y-6">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-stone-800">JEE & NEET Study Resources & Books</h2>
+                    <p class="text-sm text-stone-500">Standard reference books, modules, and PDF files for engineering and medical aspirants.</p>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="filterBooks('all')" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-stone-800 text-white">All</button>
+                    <button onclick="filterBooks('JEE')" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-stone-100 text-stone-700">JEE</button>
+                    <button onclick="filterBooks('NEET')" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-stone-100 text-stone-700">NEET</button>
+                </div>
+            </div>
+
+            <!-- Book Grid -->
+            <div id="jeeneet-book-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Rendered dynamically -->
+            </div>
+        </section>
+
+        <!-- STUDY TRACKER (Regain App Style) TAB -->
+        <section id="tab-tracker" class="hidden space-y-6">
+            <div class="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-3xl border border-stone-200 shadow-sm space-y-3">
+                <span class="inline-block bg-amber-100 text-amber-800 text-xs px-3 py-1 rounded-full font-bold">📊 Daily Study Tracker</span>
+                <h2 class="text-2xl font-bold text-stone-800">Regain Focus & Habit Tracker</h2>
+                <p class="text-sm text-stone-600">Track your daily study streak, check off targets, and maintain laser focus like the Regain app.</p>
+            </div>
+
+            <!-- Streak & Score Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm text-center">
+                    <p class="text-xs text-stone-400 font-bold uppercase">Study Streak</p>
+                    <h3 id="tracker-streak" class="text-3xl font-extrabold text-amber-600 mt-1">🔥 5 Days</h3>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm text-center">
+                    <p class="text-xs text-stone-400 font-bold uppercase">Daily Goal Progress</p>
+                    <h3 id="tracker-progress" class="text-3xl font-extrabold text-teal-600 mt-1">0%</h3>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm text-center">
+                    <p class="text-xs text-stone-400 font-bold uppercase">Focus Score</p>
+                    <h3 class="text-3xl font-extrabold text-blue-600 mt-1">94/100</h3>
+                </div>
+            </div>
+
+            <!-- Tracker Checklist & Input -->
+            <div class="bg-white p-6 rounded-3xl border border-stone-200 shadow-sm space-y-4">
+                <h3 class="font-bold text-stone-800 text-lg">Today's Study Targets</h3>
+                <div class="flex gap-2">
+                    <input type="text" id="tracker-input" placeholder="e.g. Solve 50 Calculus problems / Revision" class="flex-grow bg-stone-50 border border-stone-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-amber-500">
+                    <button onclick="addTrackerTask()" class="bg-amber-600 hover:bg-amber-700 text-white font-bold px-5 py-3 rounded-2xl text-sm transition shadow-sm">Add Target</button>
+                </div>
+                <div id="tracker-tasks-list" class="space-y-2 pt-2">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- TIMER TAB -->
+        <section id="tab-timer" class="hidden space-y-6">
+            <div class="text-center max-w-md mx-auto space-y-2">
+                <h2 class="text-2xl font-bold text-stone-800">Focus Timer</h2>
+                <p class="text-sm text-stone-500">Pomodoro timer for distraction-free study sessions.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm max-w-md mx-auto text-center space-y-6">
+                <div class="flex justify-center bg-stone-100 p-1.5 rounded-2xl gap-2">
+                    <button onclick="setTimerMode('work')" id="mode-work" class="px-4 py-2 text-xs font-bold rounded-xl transition bg-white shadow-sm text-stone-800">Focus (25m)</button>
+                    <button onclick="setTimerMode('shortBreak')" id="mode-shortBreak" class="px-4 py-2 text-xs font-bold rounded-xl transition text-stone-600">Short Break (5m)</button>
+                </div>
+
+                <div class="py-6">
+                    <span id="timer-display" class="text-6xl font-extrabold text-stone-800 tracking-wider">25:00</span>
+                </div>
+
+                <div class="flex items-center justify-center gap-4">
+                    <button onclick="toggleTimer()" id="timer-toggle-btn" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-8 py-3.5 rounded-2xl shadow-md transition flex items-center gap-2">
+                        <i data-lucide="play" class="w-5 h-5"></i> Start
+                    </button>
+                    <button onclick="resetTimer()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold p-3.5 rounded-2xl transition">
+                        <i data-lucide="rotate-ccw" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // State
+        let state = {
+            jeeneetBooks: [
+                { id: 1, title: 'H.C. Verma Physics (Vol 1 & 2)', category: 'JEE', author: 'H.C. Verma', type: 'PDF / Book' },
+                { id: 2, title: 'I.E. Irodov Problems in General Physics', category: 'JEE', author: 'I.E. Irodov', type: 'PDF / Book' },
+                { id: 3, title: 'MS Chouhan Advanced Organic Chemistry', category: 'JEE', author: 'M.S. Chouhan', type: 'PDF / Book' },
+                { id: 4, title: 'NCERT Biology Textbook (Class 11 & 12)', category: 'NEET', author: 'NCERT', type: 'Essential PDF' },
+                { id: 5, title: 'Trueman’s Objective Biology for NEET', category: 'NEET', author: 'M.P. Tyagi', type: 'PDF / Book' },
+                { id: 6, title: 'DC Pandey Physics for NEET/JEE', category: 'Both', author: 'D.C. Pandey', type: 'PDF / Book' }
+            ],
+            trackerTasks: [
+                { id: 1, text: 'Complete Physics Modern Physics revision', completed: true },
+                { id: 2, text: 'Solve 1 full-length NEET/JEE Mock Test', completed: false }
+            ]
+        };
+
+        if (localStorage.getItem('studyshelf_v2')) {
+            try { state = JSON.parse(localStorage.getItem('studyshelf_v2')); } catch(e){}
+        }
+
+        function saveState() {
+            localStorage.setItem('studyshelf_v2', JSON.stringify(state));
+            updateUI();
+        }
+
+        lucide.createIcons();
+
+        function switchTab(tabId) {
+            ['channels', 'jeeneet', 'tracker', 'timer'].forEach(t => {
+                document.getElementById(`tab-${t}`).classList.add('hidden');
+                document.getElementById(`nav-${t}`).classList.remove('bg-white', 'shadow-sm', 'text-stone-800');
+                document.getElementById(`nav-${t}`).classList.add('text-stone-600');
+            });
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+            document.getElementById(`nav-${tabId}`).classList.add('bg-white', 'shadow-sm', 'text-stone-800');
+            document.getElementById(`nav-${tabId}`).classList.remove('text-stone-600');
+            lucide.createIcons();
+        }
+
+        function updateUI() {
+            renderBooks('all');
+            renderTracker();
+            lucide.createIcons();
+        }
+
+        // Books Filter & Render
+        function filterBooks(cat) {
+            renderBooks(cat);
+        }
+
+        function renderBooks(category) {
+            const grid = document.getElementById('jeeneet-book-grid');
+            const filtered = category === 'all' ? state.jeeneetBooks : state.jeeneetBooks.filter(b => b.category === category || b.category === 'Both');
+            
+            grid.innerHTML = filtered.map(b => `
+                <div class="bg-white p-5 rounded-3xl border border-stone-200 shadow-sm flex flex-col justify-between space-y-4">
+                    <div class="space-y-1">
+                        <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded-lg ${b.category === 'JEE' ? 'bg-blue-100 text-blue-700' : b.category === 'NEET' ? 'bg-teal-100 text-teal-700' : 'bg-purple-100 text-purple-700'}">${b.category}</span>
+                        <h4 class="font-bold text-stone-800 text-sm mt-2">${b.title}</h4>
+                        <p class="text-xs text-stone-500">Author: ${b.author}</p>
+                    </div>
+                    <button onclick="alert('Downloading/Opening resource file: ${b.title}')" class="w-full bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+                        <i data-lucide="download" class="w-3.5 h-3.5"></i> Access File
+                    </button>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        // Tracker Logic (Regain style)
+        function addTrackerTask() {
+            const input = document.getElementById('tracker-input');
+            const text = input.value.trim();
+            if (!text) return;
+            state.trackerTasks.push({ id: Date.now(), text, completed: false });
+            input.value = '';
+            saveState();
+        }
+
+        function toggleTrackerTask(id) {
+            const task = state.trackerTasks.find(t => t.id === id);
+            if (task) {
+                task.completed = !task.completed;
+                saveState();
+            }
+        }
+
+        function deleteTrackerTask(id) {
+            state.trackerTasks = state.trackerTasks.filter(t => t.id !== id);
+            saveState();
+        }
+
+        function renderTracker() {
+            const list = document.getElementById('tracker-tasks-list');
+            const total = state.trackerTasks.length;
+            const completed = state.trackerTasks.filter(t => t.completed).length;
+            const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
+            
+            document.getElementById('tracker-progress').textContent = `${percent}%`;
+
+            if (total === 0) {
+                list.innerHTML = `<p class="text-stone-400 text-xs text-center py-4">No targets set for today. Add one above!</p>`;
+                return;
+            }
+
+            list.innerHTML = state.trackerTasks.map(t => `
+                <div class="flex items-center justify-between p-3.5 rounded-2xl bg-stone-50 border border-stone-200 transition ${t.completed ? 'opacity-60 bg-stone-100/50' : ''}">
+                    <label class="flex items-center gap-3 cursor-pointer flex-grow">
+                        <input type="checkbox" ${t.completed ? 'checked' : ''} onchange="toggleTrackerTask(${t.id})" class="w-4 h-4 rounded text-amber-600 focus:ring-amber-500">
+                        <span class="text-sm font-semibold text-stone-800 ${t.completed ? 'line-through text-stone-400' : ''}">${t.text}</span>
+                    </label>
+                    <button onclick="deleteTrackerTask(${t.id})" class="text-stone-400 hover:text-red-500 p-1">
+                        <i data-lucide="trash-2" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Timer Logic
+        let timerInterval = null;
+        let timerSeconds = 25 * 60;
+        let isRunning = false;
+
+        function setTimerMode(mode) {
+      
